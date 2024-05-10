@@ -1,0 +1,6 @@
+{
+    {"code-runner.executorMapByFileExtension": {
+        ".pde": "cd $dir && mkdir $fileNameWithoutExt && cd $fileNameWithoutExt && copy $fullFileName ./ && processing-java --sketch=$dirWithoutTrailingSlash\\$fileNameWithoutExt  --run && rmdir $fileName && cd $dir && rmdir $fileNameWithoutExt"
+    }
+}
+}

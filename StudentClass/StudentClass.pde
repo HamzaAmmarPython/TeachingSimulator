@@ -13,7 +13,6 @@ class Student{
   }
   //Disturbance and question will be randomized once a list of these messages is made
   void causeDisturbance(int classIndex){
-     classIndex++;
      for (int i = 0; i < 4; i++){
        if (i < 2){
          this.curDisturbances[i] = this.disturbances[i];
@@ -22,21 +21,13 @@ class Student{
          this.curDisturbances[i] = this.disturbances[classIndex*2 + (i-2)];
        }
      }
-     String randomMessage = curDisturbances[int(random(1,4))];
+     println(curDisturbances);
+     String randomMessage = "THIS CLASS SUCKS!";
      println(randomMessage);
   }
   
-  void askQuestion(int classIndex){
-    classIndex++;
-     for (int i = 0; i < 4; i++){
-       if (i < 2){
-         this.curDisturbances[i] = this.questions[i];
-       }
-       else{
-         this.curDisturbances[i] = this.questions[classIndex*2 + (i-2)];
-       }
-     }
-     String question = curDisturbances[int(random(1,4))];    
-     println(question);
+  void askQuestion(){
+    String question = "Can I go to the bathroom?";
+    println(question);
   }
 }
