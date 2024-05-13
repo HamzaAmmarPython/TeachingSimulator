@@ -1,0 +1,27 @@
+class Teacher{
+  PVector pos;
+  String name, subject;
+  String[] answers;
+  PImage TeacherImage;
+  
+  Teacher(String n, String[] a, String s){
+    this.name = n;
+    this.answers = a;
+    this.subject = s;
+  }
+  
+  void drawTeacher() {
+    image(ChemistryTeacher,205,230,500,500);
+  }
+  
+  void speak(){
+     println(this.answers[round(random(0,1))]);
+  } 
+  
+  void introduction(){
+    println("Hello my name is", this.name, "and I am your", this.subject);
+  }
+  
+  
+  
+}
