@@ -1,10 +1,16 @@
+String[] DaSilvaQuotes = {"That's Beatiful", "Taylor Swift"};
+Teacher DaSilva = new Teacher("Mr. DaSilva", DaSilvaQuotes, "Math");
 void setup(){
+  size(800,800);
   Student Jeff = new Student("Jeff Bezos");
   Jeff.causeDisturbance(2);
   Jeff.askQuestion(2);
   
-  String[] DaSilvaQuotes = {"That's Beatiful", "Taylor Swift"};
-  Teacher DaSilva = new Teacher("Mr. DaSilva", DaSilvaQuotes);
+  
+
   DaSilva.speak();
-  exit();
 };
+void draw(){
+  graphics();
+    DaSilva.teach();
+}

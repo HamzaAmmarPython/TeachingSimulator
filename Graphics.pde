@@ -1,9 +1,12 @@
-void setup() {
-  size(800,600);
-  background(252,248,237);
-}
+//void setup() {
+//  size(800,600);
+//  background(252,248,237);
+//}
+void graphics(){
+  //Teacher
 
-void draw() {
+
+  
   //walls
   background(252,248,237);
   stroke(244,234,223);
@@ -97,4 +100,6 @@ void draw() {
     y += 85;
     x = 130;
   }
+  PImage img = loadImage("realTeacherTemplate.png");
+  image(img, 280, 50);
 }
