@@ -101,5 +101,7 @@ void graphics(){
     x = 130;
   }
   PImage img = loadImage("realTeacherTemplate.png");
+  PImage snatty = loadImage("ChemistryTeacher.png");
+  image(snatty, 300,145,45,75);
   image(img, 280, 50);
 }

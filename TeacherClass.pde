@@ -27,7 +27,7 @@ class Teacher{
       
       case "Chemistry":
         text("O--C--O", 400, 130);
-        println("Carbon bonds with 2 oxygen atoms to make CO2");
+        //println("Carbon bonds with 2 oxygen atoms to make CO2");
         break;
         
       case "CS":
