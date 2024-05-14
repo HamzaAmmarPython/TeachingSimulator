@@ -23,7 +23,10 @@ class Student{
        }
      }
      String randomMessage = curDisturbances[int(random(1,4))];
-     println(randomMessage);
+     speaker[0] = "True";
+     speaker[1] = randomMessage;
+     speaker[2] = "Student";
+
   }
   
   void askQuestion(int classIndex){
@@ -38,5 +41,8 @@ class Student{
      }
      String question = curDisturbances[int(random(1,4))];    
      println(question);
+     speaker[0] = "True";
+     speaker[1] = question;
+     speaker[2] = "Student";
   }
 }

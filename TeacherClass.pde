@@ -11,7 +11,11 @@ class Teacher{
     
   }
   void speak(){
-     println(this.answers[round(random(0,1))]);
+     speaker[0] = "True";
+     speaker[1] = this.answers[round(random(0,1))];
+     speaker[2] = "Teacher";
+
+
   } 
   
   void introduction(){

@@ -62,10 +62,13 @@ void graphics(){
   quad(205,230,295,230,280,260,190,260);
   rect(190,260,90,20);
   quad(295,230,295,255,280,280,280,255);
-  
+  PImage studentImage = loadImage("student.png");
   int x = 130;
   int y = 310;
+
   for(int i=0; i<3; i++) {
+     image(studentImage, 146,270,40,70);
+
     for(int j=-2; j<3; j++) {
       //desks
       stroke(126);
@@ -84,7 +87,7 @@ void graphics(){
       rect(x,y+30,70,10);
       stroke(227,162,87);
       line(x+3,y+30,x+67,y+30);
-      
+
       //chairs
       stroke(126);
       strokeWeight(4);
@@ -102,6 +105,8 @@ void graphics(){
   }
   PImage img = loadImage("realTeacherTemplate.png");
   PImage snatty = loadImage("ChemistryTeacher.png");
+
   image(snatty, 300,145,45,75);
   image(img, 280, 50);
+
 }
