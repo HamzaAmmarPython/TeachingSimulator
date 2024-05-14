@@ -9,7 +9,7 @@ int speechCount = 0;
 Student Jeff;
 
 void setup(){
-  size(800,800);
+  size(800,600);
   //Jeff.causeDisturbance(1);
   //Jeff.askQuestion(1);
   createGUI();

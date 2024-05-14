@@ -22,7 +22,7 @@ class Student{
          this.curDisturbances[i] = this.disturbances[classIndex*2 + (i-2)];
        }
      }
-     String randomMessage = curDisturbances[int(random(1,4))];
+     String randomMessage = curDisturbances[int(random(0,4))];
      speaker[0] = "True";
      speaker[1] = randomMessage;
      speaker[2] = "Student";
@@ -39,7 +39,7 @@ class Student{
          this.curDisturbances[i] = this.questions[classIndex*2 + (i-2)];
        }
      }
-     String question = curDisturbances[int(random(1,4))];    
+     String question = curDisturbances[int(random(0,4))];    
      println(question);
      speaker[0] = "True";
      speaker[1] = question;
