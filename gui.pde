@@ -42,7 +42,10 @@ public void subjectSelectChanged(GDropList source, GEvent event) { //_CODE_:subj
     TeacherQuotes[0] = "That's Beautiful";
     TeacherQuotes[1] = "Taylor Swift";
     name = "Mr. Dasilva";
-     teacherImage = loadImage("speech.png");
+    teachingText = "y = mx + b";
+    teacherImage = loadImage("DaSilva.png");
+    teachingImage = null;
+
 
    }
   else if (subjectSelect.getSelectedText().equals("Chemistry")){
@@ -50,12 +53,18 @@ public void subjectSelectChanged(GDropList source, GEvent event) { //_CODE_:subj
     TeacherQuotes[1] = "Join Track!";
     name = "Mr. Snatty";  
     teacherImage = loadImage("ChemistryTeacher.png");
-  }
+    teachingText = "O -- C -- O";
+    teachingImage = null;
+
+}
+  
   else if (subjectSelect.getSelectedText().equals("Computer Science")){
     TeacherQuotes[0] = "Open up Processing";
     TeacherQuotes[1] = "";
     name = "Mr. Schatmann";
     teacherImage = loadImage("Schatmann.png");
+    teachingText = "Mandelbrot Set:";
+    teachingImage = loadImage("MandelbrotSet.png");
   }
   else if (subjectSelect.getSelectedText().equals("English")){
     TeacherQuotes[0] = "";
@@ -65,7 +74,7 @@ public void subjectSelectChanged(GDropList source, GEvent event) { //_CODE_:subj
   }
   else{
     TeacherQuotes[0] = "Feel the rain on your skin";
-    TeacherQuotes[1] = "Ohhhh yeahhh";
+    TeacherQuotes[1] = "Alllllrighhht";
     name = "Mr. Vrolyk";  
     teacherImage = loadImage("speech.png");
 
@@ -76,7 +85,12 @@ public void subjectSelectChanged(GDropList source, GEvent event) { //_CODE_:subj
 } //_CODE_:subjectSelect:714673:
 
 public void crazinessChanged(GSlider source, GEvent event) { //_CODE_:craziness:374725:
-  //crazinessLabel.setText("That's cr" + "a".repeat(craziness.getValueI()) + "zy");
+  String crazinessText = "That's cr";
+  for (int i = 0; i < craziness.getValueI(); i++){
+    crazinessText += "a";
+  }
+  crazinessText += "zy";
+  crazinessLabel.setText(crazinessText);
 } //_CODE_:craziness:374725:
 
 

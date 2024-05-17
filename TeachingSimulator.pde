@@ -2,11 +2,13 @@ import g4p_controls.*;
 PImage bubble;
 PImage img;
 PImage teacherImage;
+PImage teachingImage;
 String[] TeacherQuotes = new String[2];
 String[] DaSilvaQuotes = {"That's Beatiful", "Taylor Swift"};
 String[] SnattyQuotes = {"Why?", "Join Track"};
 Teacher teacher;
 String name;
+String teachingText;
 Teacher DaSilva = new Teacher("Mr. DaSilva", DaSilvaQuotes, "Math");
 Teacher Snatty = new Teacher("Mr. Snatty", SnattyQuotes, "Chemistry");
 String speaker[] = {"False","N/A","N/A"};
@@ -22,6 +24,8 @@ void setup(){
   bubble = loadImage("speech.png");
   img = loadImage("realTeacherTemplate.png");
   teacherImage = loadImage("speech.png");
+  teachingText = "";
+  teachingImage = null;
   //Snatty.speak();
 };
 
@@ -29,7 +33,7 @@ void draw(){
   int x,y;
   
   graphics();
-  Snatty.teach();
+  //Snatty.teach();
   if (speaker[0].equals("True")){
     speechCount++;
     if(speaker[2].equals("Teacher")){
