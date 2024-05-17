@@ -67,35 +67,35 @@ void graphics(){
   int y = 310;
 
   for(int i=0; i<3; i++) {
-     image(studentImage, 146,270,40,70);
+     //image(studentImage, 146,270,40,70);
 
     for(int j=-2; j<3; j++) {
-      //desks
-      stroke(126);
-      strokeWeight(4);
-      line(x+3,y+40,x+3,y+60);
-      line(x+67,y+40,x+67,y+60);
-      line(x+67+4*(-j),y+5,x+67+4*(-j),y+35);
-      line(x+3+4*(-j),y+5,x+3+4*(-j),y+35);
-      noStroke();
-      fill(138, 100, 55);
-      rect(x+20,y+20,35,30);
-      fill(232,172,97);
-      quad(x+70+4*(-j),y,x+70+4*(-j),y+15,x+70,y+40,x+70,y+30);
-      quad(x+4*(-j),y,x+4*(-j),y+15,x,y+40,x,y+30);
-      quad(x+4*(-j),y,x+70+4*(-j),y,x+70,y+30,x,y+30);
-      rect(x,y+30,70,10);
-      stroke(227,162,87);
-      line(x+3,y+30,x+67,y+30);
+      ////desks
+      //stroke(126);
+      //strokeWeight(4);
+      //line(x+3,y+40,x+3,y+60);
+      //line(x+67,y+40,x+67,y+60);
+      //line(x+67+4*(-j),y+5,x+67+4*(-j),y+35);
+      //line(x+3+4*(-j),y+5,x+3+4*(-j),y+35);
+      //noStroke();
+      //fill(138, 100, 55);
+      //rect(x+20,y+20,35,30);
+      //fill(232,172,97);
+      //quad(x+70+4*(-j),y,x+70+4*(-j),y+15,x+70,y+40,x+70,y+30);
+      //quad(x+4*(-j),y,x+4*(-j),y+15,x,y+40,x,y+30);
+      //quad(x+4*(-j),y,x+70+4*(-j),y,x+70,y+30,x,y+30);
+      //rect(x,y+30,70,10);
+      //stroke(227,162,87);
+      //line(x+3,y+30,x+67,y+30);
 
-      //chairs
-      stroke(126);
-      strokeWeight(4);
-      line(x+21,y+30,x+21,y+70);
-      line(x+53,y+30,x+53,y+70);
-      noStroke();
-      fill(138, 100, 55);
-      rect(x+20,y+15,35,15);
+      ////chairs
+      //stroke(126);
+      //strokeWeight(4);
+      //line(x+21,y+30,x+21,y+70);
+      //line(x+53,y+30,x+53,y+70);
+      //noStroke();
+      //fill(138, 100, 55);
+      //rect(x+20,y+15,35,15);
       
       
       x += 125;

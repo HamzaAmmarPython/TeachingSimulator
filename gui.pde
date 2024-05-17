@@ -93,6 +93,10 @@ public void crazinessChanged(GSlider source, GEvent event) { //_CODE_:craziness:
   crazinessLabel.setText(crazinessText);
 } //_CODE_:craziness:374725:
 
+public void setNumStudents(GSlider source, GEvent event) { //_CODE_:NUMStudents:804576:
+  numStudents = NUMStudents.getValueI();
+} //_CODE_:NUMStudents:804576:
+
 
 
 // Create all the GUI controls. 
@@ -144,6 +148,16 @@ public void createGUI(){
   crazinessLabel = new GLabel(window1, 0, 196, 240, 20);
   crazinessLabel.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   crazinessLabel.setOpaque(false);
+  NUMStudents = new GSlider(window1, 40, 239, 145, 40, 10.0);
+  NUMStudents.setShowLimits(true);
+  NUMStudents.setLimits(8, 1, 12);
+  NUMStudents.setNumberFormat(G4P.INTEGER, 0);
+  NUMStudents.setOpaque(false);
+  NUMStudents.addEventHandler(this, "setNumStudents");
+  label4 = new GLabel(window1, 40, 219, 145, 20);
+  label4.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
+  label4.setText("How many Students?");
+  label4.setOpaque(false);
   window1.loop();
 }
 
@@ -160,3 +174,5 @@ GSlider craziness;
 GLabel label3; 
 GLabel TeacherIntro; 
 GLabel crazinessLabel; 
+GSlider NUMStudents; 
+GLabel label4; 
