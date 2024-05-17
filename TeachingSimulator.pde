@@ -7,19 +7,12 @@ String[] TeacherQuotes = new String[2];
 Teacher teacher;
 Teacher Snatty;
 String name;
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
-String teachingText;
-Teacher DaSilva = new Teacher("Mr. DaSilva", DaSilvaQuotes, "Math");
-Teacher Snatty = new Teacher("Mr. Snatty", SnattyQuotes, "Chemistry");
->>>>>>> d4830ee323c231463076351c7165ae0cfa1a4a01
+Desk[][] D = new Desk[4][3];
 String speaker[] = {"False","N/A","N/A"};
 int speechCount = 0;
 int numStudents = 8;
-Desk[][] D = new Desk[4][3];
+String teachingText;
+Student Jeff;
 Student[] S;
 
 void setup(){
@@ -45,20 +38,12 @@ void draw(){
   int x,y;
   
   graphics();
-<<<<<<< Updated upstream
-  //Snatty.teach();
-=======
-<<<<<<< HEAD
   for(int i=0; i<3; i++) {
     for(int j=0; j<4; j++) {
       D[j][i].drawDesk();
     }
   }
   
-=======
-  //Snatty.teach();
->>>>>>> d4830ee323c231463076351c7165ae0cfa1a4a01
->>>>>>> Stashed changes
   if (speaker[0].equals("True")){
     speechCount++;
     if(speaker[2].equals("Teacher")){
