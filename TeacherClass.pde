@@ -7,9 +7,7 @@ class Teacher{
     this.answers = a;
     this.subject = s;
   }
-  void draw(){
-    
-  }
+  
   void speak(){
      speaker[0] = "True";
      speaker[1] = this.answers[round(random(0,1))];

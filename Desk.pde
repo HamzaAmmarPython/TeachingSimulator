@@ -1,10 +1,10 @@
 class Desk {
-  Student s;
+  Student S;
   PVector pos, numDesk;
   
   Desk(int column,int row) {
-    this.numDesk = new PVector(column-2,row);
-    this.pos = new PVector(200+125*column,310+85*row);
+    this.numDesk = new PVector(-(column-2),row);
+    this.pos = new PVector(200+125*column,310+100*row);
   }
   
   void drawDesk() {
@@ -25,7 +25,14 @@ class Desk {
     rect(this.pos.x,this.pos.y+30,70,10);
     stroke(227,162,87);
     line(this.pos.x+3,this.pos.y+30,this.pos.x+67,this.pos.y+30);
-
+    
+    //Student
+    if (this.S != null) {
+      image(studentImage, this.pos.x+15,this.pos.y-30,40,70);
+      fill(0);
+      text(this.S.name,this.pos.x+15,this.pos.y-16);
+    }
+      
     //chairs
     stroke(126);
     strokeWeight(4);

@@ -95,6 +95,7 @@ public void crazinessChanged(GSlider source, GEvent event) { //_CODE_:craziness:
 
 public void setNumStudents(GSlider source, GEvent event) { //_CODE_:NUMStudents:804576:
   numStudents = NUMStudents.getValueI();
+  rest();
 } //_CODE_:NUMStudents:804576:
 
 
@@ -149,6 +150,7 @@ public void createGUI(){
   crazinessLabel.setTextAlign(GAlign.CENTER, GAlign.MIDDLE);
   crazinessLabel.setOpaque(false);
   NUMStudents = new GSlider(window1, 40, 239, 145, 40, 10.0);
+  NUMStudents.setShowValue(true);
   NUMStudents.setShowLimits(true);
   NUMStudents.setLimits(8, 1, 12);
   NUMStudents.setNumberFormat(G4P.INTEGER, 0);

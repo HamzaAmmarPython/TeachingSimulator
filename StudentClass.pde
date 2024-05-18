@@ -5,6 +5,7 @@ class Student{
   int grade; //As mark gets lower, rowdiness of each student gets higher
   String name;
   String curDisturbances[] = new String[4];
+  Desk D;
 
   
   Student(String n){
@@ -44,5 +45,16 @@ class Student{
      speaker[0] = "True";
      speaker[1] = question;
      speaker[2] = "Student";
+  }
+  
+  void assignDesk() {
+    while (this.D == null) {
+      int randColumn = int(random(4));
+      int randRow = int(random(3));
+      if (C.Desks[randColumn][randRow].S == null) {
+        C.Desks[randColumn][randRow].S = this;
+        this.D = C.Desks[randColumn][randRow];
+      }
+    }
   }
 }
