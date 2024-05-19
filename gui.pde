@@ -33,6 +33,13 @@ public void button3_click1(GButton source, GEvent event) { //_CODE_:button3:7607
   teacher.speak();
 } //_CODE_:button3:760748:
 
+public void button4_click1(GButton source, GEvent event) { //_CODE_:button4:219060:
+  if (teacher.teaching == true)
+    teacher.teaching = false;
+  else
+    teacher.teaching = true;
+} //_CODE_:button4:219060:
+
 synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:window1:872767:
   appc.background(230);
 } //_CODE_:window1:872767:
@@ -89,8 +96,10 @@ public void crazinessChanged(GSlider source, GEvent event) { //_CODE_:craziness:
   for (int i = 0; i < craziness.getValueI(); i++){
     crazinessText += "a";
   }
+  rowdiness = craziness.getValueI();
   crazinessText += "zy";
   crazinessLabel.setText(crazinessText);
+  rest();
 } //_CODE_:craziness:374725:
 
 public void setNumStudents(GSlider source, GEvent event) { //_CODE_:NUMStudents:804576:
@@ -107,15 +116,18 @@ public void createGUI(){
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
   surface.setTitle("Sketch Window");
-  button1 = new GButton(this, 103, 31, 80, 30);
+  button1 = new GButton(this, 158, 43, 80, 30);
   button1.setText("Disturbance");
   button1.addEventHandler(this, "button1_click1");
-  button2 = new GButton(this, 101, 81, 80, 30);
+  button2 = new GButton(this, 158, 82, 80, 30);
   button2.setText("Question");
   button2.addEventHandler(this, "button2_click1");
-  button3 = new GButton(this, 102, 129, 80, 30);
+  button3 = new GButton(this, 159, 125, 80, 30);
   button3.setText("Answer");
   button3.addEventHandler(this, "button3_click1");
+  button4 = new GButton(this, 159, 164, 80, 30);
+  button4.setText("Teach");
+  button4.addEventHandler(this, "button4_click1");
   window1 = GWindow.getWindow(this, "Window title", 0, 0, 240, 400, JAVA2D);
   window1.noLoop();
   window1.setActionOnClose(G4P.KEEP_OPEN);
@@ -168,6 +180,7 @@ public void createGUI(){
 GButton button1; 
 GButton button2; 
 GButton button3; 
+GButton button4; 
 GWindow window1;
 GLabel label1; 
 GDropList subjectSelect; 

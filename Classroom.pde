@@ -5,7 +5,7 @@ class Classroom {
     Desk[][] Desks = new Desk[4][3];
     
     // Constructor
-    Classroom(int numberOfStudents) {
+    Classroom(int numberOfStudents, float r) {
       this.gradeAverages = new float[numberOfStudents];
       this.Students = new Student[numberOfStudents];
       
@@ -17,7 +17,7 @@ class Classroom {
       
       int randomNameOffSet = int(random(11));
       for (int i=0; i<numberOfStudents; i++) {
-        this.Students[i] = new Student(this.StudentNames[randomNameOffSet+i]);
+        this.Students[i] = new Student(this.StudentNames[randomNameOffSet+i],r);
        }
       
    }
@@ -55,7 +55,7 @@ class Classroom {
       fill(250);
       stroke(105,79,54);
       strokeWeight(6);
-      quad(30,275,25,150,100,160,100,230);
+      quad(-10,340,-20,150,80,160,80,260);
       
       fill(40,33,32);
       noStroke();
@@ -78,6 +78,14 @@ class Classroom {
       quad(205,230,295,230,280,260,190,260);
       rect(190,260,90,20);
       quad(295,230,295,255,280,280,280,255);
+      
+      //student view grid
+      stroke(10);
+      fill(190);
+      rect(800,-10,310,610);
+      for (int i=1;i<12;i++) {
+        line(800,50*i,1100,50*i);
+      }
     }
 
     // Set grade average

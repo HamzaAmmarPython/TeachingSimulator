@@ -8,13 +8,14 @@ String speaker[] = {"False","N/A","N/A"};
 int speechCount = 0;
 int numStudents = 8;
 int randomStudent;
+float rowdiness = 1;
 String teachingText;
 
 void setup(){
-  size(800,600);
+  size(1100,600);
   
   createGUI();
-  C = new Classroom(numStudents);
+  C = new Classroom(numStudents,rowdiness);
   
   TeacherQuotes[0] = "Why?";
   TeacherQuotes[1] = "Join Track!";
@@ -44,6 +45,14 @@ void draw(){
       C.Desks[j][i].drawDesk();
     }
   }
+  for (int k=0; k<numStudents; k++) {
+    try {
+      C.Students[k].displayStats(k);
+    }
+    catch (Exception e) {
+      println();
+    }
+  }
   
   if (speaker[0].equals("True")){
     speechCount++;
@@ -66,8 +75,8 @@ void draw(){
 }
 
 void rest() {
-  C = new Classroom(numStudents);
-  for (int i=0; i<8; i++) {
+  C = new Classroom(numStudents, rowdiness);
+  for (int i=0; i<numStudents; i++) {
     C.Students[i].assignDesk();
   }
 }

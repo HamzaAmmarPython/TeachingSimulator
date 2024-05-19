@@ -1,15 +1,15 @@
 Fatma
 Yaman
 Hamza
- Azim
- Lin
- Luke
+Azim
+Lin
+Luke
 Sophie
 Wentao
 Mehmet
 Tanujan
 Jessica
- Tom
+Tom
 Alex
 Hasan
 Moiz
@@ -20,5 +20,5 @@ Larry
 Ayaz
 Shawn
 Sydney
-  Li
+Li
 Jeffrey
