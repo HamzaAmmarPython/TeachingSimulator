@@ -1,33 +1,32 @@
 import g4p_controls.*;
-PImage bubble;
-PImage img;
-PImage teacherImage;
-PImage teachingImage;
-PImage studentImage;
+PImage bubble,img,teacherImage,teachingImage,studentImage;
 String[] TeacherQuotes = new String[2];
 Teacher teacher;
-Teacher Snatty;
 Classroom C;
 String name;
 String speaker[] = {"False","N/A","N/A"};
 int speechCount = 0;
 int numStudents = 8;
+int randomStudent;
 String teachingText;
-Student Jeff;
 
 void setup(){
   size(800,600);
-  //Jeff.causeDisturbance(1);
-  //Jeff.askQuestion(1);
+  
   createGUI();
   C = new Classroom(numStudents);
-  Jeff = new Student("Jeff Bazos");
+  
+  TeacherQuotes[0] = "Why?";
+  TeacherQuotes[1] = "Join Track!";
+  name = "Mr. Snatty";  
+  teacherImage = loadImage("ChemistryTeacher.png");
+  teachingText = "O -- C -- O";
+  teachingImage = null;
+  teacher = new Teacher(name, TeacherQuotes, subjectSelect.getSelectedText());
+  
   img = loadImage("realTeacherTemplate.png");
   studentImage = loadImage("student.png");
-  teacherImage = loadImage("speech.png");
   bubble = loadImage("speech.png");
-  teachingText = "";
-  teachingImage = null;
   
   for (int i=0; i<8; i++) {
     C.Students[i].assignDesk();
@@ -39,7 +38,7 @@ void setup(){
 void draw(){
   int x,y;
   C.drawClassroom();
-  graphics();
+  teacher.drawTeacher();
   for(int i=0; i<3; i++) {
     for(int j=0; j<4; j++) {
       C.Desks[j][i].drawDesk();
@@ -52,9 +51,9 @@ void draw(){
       x = 330;
       y = 100;
     }
-    else{
-      x = 180;
-      y = 220;
+    else {
+      x = int(C.Students[randomStudent].D.pos.x)+60;
+      y = int(C.Students[randomStudent].D.pos.y)-70;
     }
     if (speechCount >= 100){
        speaker[0] = "False"; 

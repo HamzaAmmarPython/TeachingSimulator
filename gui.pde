@@ -16,21 +16,21 @@
 
 public void button1_click1(GButton source, GEvent event) { //_CODE_:button1:605786:
   speechCount = 0;
-
-  Jeff.causeDisturbance(1);
+  randomStudent = int(random(C.Students.length));
+  C.Students[randomStudent].causeDisturbance(1);
   //delay(5000);
 } //_CODE_:button1:605786:
 
 public void button2_click1(GButton source, GEvent event) { //_CODE_:button2:472636:
   speechCount = 0;
-
-   Jeff.askQuestion(1);
+  randomStudent = int(random(C.Students.length));
+  C.Students[randomStudent].askQuestion(1);
 } //_CODE_:button2:472636:
 
 public void button3_click1(GButton source, GEvent event) { //_CODE_:button3:760748:
   speechCount = 0;
 
-  Snatty.speak();
+  teacher.speak();
 } //_CODE_:button3:760748:
 
 synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:window1:872767:

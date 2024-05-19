@@ -8,12 +8,19 @@ class Teacher{
     this.subject = s;
   }
   
+  void drawTeacher(){
+    //Teacher
+    image(teacherImage, 300,145,45,75);
+    image(img, 280, 50);
+    text(teachingText, 400,130);
+    if (teachingImage != null)
+      image(teachingImage, 380,137, 120,50);
+  }
+  
   void speak(){
      speaker[0] = "True";
      speaker[1] = this.answers[round(random(0,1))];
      speaker[2] = "Teacher";
-
-
   } 
   
   void introduction(){

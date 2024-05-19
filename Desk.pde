@@ -30,7 +30,8 @@ class Desk {
     if (this.S != null) {
       image(studentImage, this.pos.x+15,this.pos.y-30,40,70);
       fill(0);
-      text(this.S.name,this.pos.x+15,this.pos.y-16);
+      textSize(12);
+      text(this.S.name,this.pos.x+18,this.pos.y-16);
     }
       
     //chairs
