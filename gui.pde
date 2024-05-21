@@ -96,15 +96,20 @@ public void crazinessChanged(GSlider source, GEvent event) { //_CODE_:craziness:
   for (int i = 0; i < craziness.getValueI(); i++){
     crazinessText += "a";
   }
-  rowdiness = craziness.getValueI();
   crazinessText += "zy";
   crazinessLabel.setText(crazinessText);
-  rest();
+  
+  if (rowdiness != craziness.getValueI()) {
+    rowdiness = craziness.getValueI();
+    rest();
+  }
 } //_CODE_:craziness:374725:
 
 public void setNumStudents(GSlider source, GEvent event) { //_CODE_:NUMStudents:804576:
-  numStudents = NUMStudents.getValueI();
-  rest();
+  if (numStudents != NUMStudents.getValueI()) {
+    numStudents = NUMStudents.getValueI();
+    rest();
+  }
 } //_CODE_:NUMStudents:804576:
 
 

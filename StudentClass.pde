@@ -10,6 +10,7 @@ class Student{
   
   Student(String n, float r){
     this.name = n;
+    this.understanding = 0;
     this.rowdiness = round(r*random(0.9,1.1)*1000.0)/1000.0;
     this.grade = 75; //Starting grade is always a 75, can go up or down
   }
@@ -66,7 +67,7 @@ class Student{
     text(this.name,810,20+stuNum*50);
     fill(10);
     textSize(12);
-    text("- Understanding: "+this.understanding+"      - Rowdiness: "+this.rowdiness,810,40+stuNum*50);
+    text("- Understanding: "+round(this.understanding*1000.0)/1000.0+"      - Rowdiness: "+round(this.rowdiness*1000.0)/1000.0,810,40+stuNum*50);
   
   }
 }

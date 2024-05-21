@@ -11,13 +11,15 @@ class Teacher{
   }
   
   void drawTeacher(){
+    //lesson
+    if (teachingImage != null && this.teaching == true) {
+      textSize(15);
+      text(teachingText, 400,130);
+      image(teachingImage, 380,137, 120,50);
+    }
     //Teacher
     image(teacherImage, 300,145,45,75);
     image(img, 280, 50);
-    textSize(15);
-    text(teachingText, 400,130);
-    if (teachingImage != null)
-      image(teachingImage, 380,137, 120,50);
   }
   
   void speak(){

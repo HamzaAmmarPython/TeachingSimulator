@@ -10,12 +10,14 @@ int numStudents = 8;
 int randomStudent;
 float rowdiness = 1;
 String teachingText;
+int time = 0;
 
 void setup(){
   size(1100,600);
   
   createGUI();
   C = new Classroom(numStudents,rowdiness);
+  frameRate(60);
   
   TeacherQuotes[0] = "Why?";
   TeacherQuotes[1] = "Join Track!";
@@ -38,6 +40,7 @@ void setup(){
 
 void draw(){
   int x,y;
+  time++;
   C.drawClassroom();
   teacher.drawTeacher();
   for(int i=0; i<3; i++) {
@@ -47,6 +50,13 @@ void draw(){
   }
   for (int k=0; k<numStudents; k++) {
     try {
+      //teaching 
+      if (teacher.teaching == true && time%100 == 0) {
+        C.Students[k].rowdiness += 0.1;
+        C.Students[k].understanding ++;
+      }
+      else if(time%100 == 0) 
+        C.Students[k].rowdiness -= 0.1;
       C.Students[k].displayStats(k);
     }
     catch (Exception e) {
@@ -54,6 +64,7 @@ void draw(){
     }
   }
   
+  //dialogue
   if (speaker[0].equals("True")){
     speechCount++;
     if(speaker[2].equals("Teacher")){
@@ -79,4 +90,6 @@ void rest() {
   for (int i=0; i<numStudents; i++) {
     C.Students[i].assignDesk();
   }
+  time = 0;
+  teacher.teaching = false;
 }
