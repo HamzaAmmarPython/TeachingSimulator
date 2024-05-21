@@ -1,5 +1,6 @@
 import g4p_controls.*;
-PImage bubble,img,teacherImage,teachingImage,studentImage;
+PImage bubble,img,teacherImage,teachingImage;
+PImage[] studentImages = new PImage[3];
 String[] TeacherQuotes = new String[2];
 Teacher teacher;
 Classroom C;
@@ -10,8 +11,13 @@ int numStudents = 8;
 int randomStudent;
 float rowdiness = 1;
 String teachingText;
+<<<<<<< Updated upstream
 int time = 0;
 
+=======
+int classIndex = 0;
+int studentIndexes[][] = new int[3][4];
+>>>>>>> Stashed changes
 void setup(){
   size(1100,600);
   
@@ -24,14 +30,20 @@ void setup(){
   name = "Mr. Snatty";  
   teacherImage = loadImage("ChemistryTeacher.png");
   teachingText = "O -- C -- O";
-  teachingImage = null;
+  teachingImage = loadImage("CO2.png");
   teacher = new Teacher(name, TeacherQuotes, subjectSelect.getSelectedText());
   
   img = loadImage("realTeacherTemplate.png");
-  studentImage = loadImage("student.png");
+  studentImages[0] = loadImage("student.png");
+  studentImages[1] = loadImage("studentBehind1.png");
+  studentImages[2] = loadImage("studentBehind2.png");
   bubble = loadImage("speech.png");
-  
-  for (int i=0; i<8; i++) {
+  for(int i=0; i<3; i++) {
+    for(int j=0; j<4; j++) {
+      studentIndexes[i][j] = int(random(0,3));
+    }
+  }  
+  for (int i=0; i<numStudents; i++) {
     C.Students[i].assignDesk();
   }
        
@@ -45,7 +57,7 @@ void draw(){
   teacher.drawTeacher();
   for(int i=0; i<3; i++) {
     for(int j=0; j<4; j++) {
-      C.Desks[j][i].drawDesk();
+      C.Desks[j][i].drawDesk(studentIndexes[i][j]);
     }
   }
   for (int k=0; k<numStudents; k++) {

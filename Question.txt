@@ -1,13 +1,14 @@
 Can I go to the bathroom?
 Am I your favourite student?
-What is a slope?
-Can you find my X?
 How many Sigfigs is that?
 Can we not do the lab quiz?
-How long should my essay be?
-To learn or not to learn?
 Can we open up processing?
 Why won't my code work?
+What is a slope?
+Can you find my X?
+How long should my essay be?
+To learn or not to learn?
+
 
 
 

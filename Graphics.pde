@@ -8,5 +8,5 @@ void graphics(){
     image(img, 280, 50);
     text(teachingText, 400,130);
     if (teachingImage != null)
-      image(teachingImage, 380,137, 120,50);
+      image(teachingImage, 380,137, 120,55);
 }

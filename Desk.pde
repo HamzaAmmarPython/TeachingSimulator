@@ -7,7 +7,7 @@ class Desk {
     this.pos = new PVector(200+125*column,310+100*row);
   }
   
-  void drawDesk() {
+  void drawDesk(int imageIndex) {
     //desks
     stroke(126);
     strokeWeight(4);
@@ -28,7 +28,7 @@ class Desk {
     
     //Student
     if (this.S != null) {
-      image(studentImage, this.pos.x+15,this.pos.y-30,40,70);
+      image(studentImages[imageIndex], this.pos.x+15,this.pos.y-30,40,70);
       fill(0);
       textSize(12);
       text(this.S.name,this.pos.x+18,this.pos.y-16);

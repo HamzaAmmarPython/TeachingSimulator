@@ -17,14 +17,15 @@
 public void button1_click1(GButton source, GEvent event) { //_CODE_:button1:605786:
   speechCount = 0;
   randomStudent = int(random(C.Students.length));
-  C.Students[randomStudent].causeDisturbance(1);
+  classIndex = subjectSelect.getSelectedIndex();
+  C.Students[randomStudent].causeDisturbance(classIndex);
   //delay(5000);
 } //_CODE_:button1:605786:
 
 public void button2_click1(GButton source, GEvent event) { //_CODE_:button2:472636:
   speechCount = 0;
   randomStudent = int(random(C.Students.length));
-  C.Students[randomStudent].askQuestion(1);
+  C.Students[randomStudent].askQuestion(classIndex);
 } //_CODE_:button2:472636:
 
 public void button3_click1(GButton source, GEvent event) { //_CODE_:button3:760748:
@@ -45,13 +46,14 @@ synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:windo
 } //_CODE_:window1:872767:
 
 public void subjectSelectChanged(GDropList source, GEvent event) { //_CODE_:subjectSelect:714673:
+  classIndex = subjectSelect.getSelectedIndex();
   if (subjectSelect.getSelectedText().equals("Math")){
     TeacherQuotes[0] = "That's Beautiful";
     TeacherQuotes[1] = "Taylor Swift";
     name = "Mr. Dasilva";
     teachingText = "y = mx + b";
     teacherImage = loadImage("DaSilva.png");
-    teachingImage = null;
+    teachingImage = loadImage("slope.png");
 
 
    }
@@ -61,7 +63,7 @@ public void subjectSelectChanged(GDropList source, GEvent event) { //_CODE_:subj
     name = "Mr. Snatty";  
     teacherImage = loadImage("ChemistryTeacher.png");
     teachingText = "O -- C -- O";
-    teachingImage = null;
+    teachingImage = loadImage("CO2");
 
 }
   
@@ -72,12 +74,15 @@ public void subjectSelectChanged(GDropList source, GEvent event) { //_CODE_:subj
     teacherImage = loadImage("Schatmann.png");
     teachingText = "Mandelbrot Set:";
     teachingImage = loadImage("MandelbrotSet.png");
+
   }
   else if (subjectSelect.getSelectedText().equals("English")){
     TeacherQuotes[0] = "";
     TeacherQuotes[1] = "";
     name = "Mr. Wiebe";  
     teacherImage = loadImage("speech.png");
+    teachingImage = null;
+
   }
   else{
     TeacherQuotes[0] = "Feel the rain on your skin";
