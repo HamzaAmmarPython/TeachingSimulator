@@ -1,7 +1,4 @@
-//void setup() {
-//  size(800,600);
-//  background(252,248,237);
-//}
+//Draws some of the basics (teacher, lesson, and the teacher template
 void graphics(){
   //Teacher
   image(teacherImage, 300,145,45,75);

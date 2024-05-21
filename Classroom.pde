@@ -1,4 +1,6 @@
+//Classroom class, mainly for drawing the classroom and the students
 class Classroom {
+    //Initialises the parameters
     Student[] Students;
     float[] gradeAverages;
     String[] StudentNames = loadStrings("Names.txt");
@@ -21,7 +23,7 @@ class Classroom {
        }
       
    }
-    
+    //Function to draw all of the parts of a classroom
     void drawClassroom() {
       //walls
       background(252,248,237);

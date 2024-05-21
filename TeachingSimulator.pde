@@ -1,28 +1,29 @@
 import g4p_controls.*;
+//Initialising some variables for students rowdiness, grades, teachers, speaking points, etc.
 PImage bubble,img,teacherImage,teachingImage;
 PImage[] studentImages = new PImage[3];
 String[] TeacherQuotes = new String[2];
+String speaker[] = {"False","N/A","N/A"};
+int studentIndexes[][] = new int[3][4];
 Teacher teacher;
 Classroom C;
-String name;
-String speaker[] = {"False","N/A","N/A"};
+String name, teachingText;
+float rowdiness = 1;
 int speechCount = 0;
 int numStudents = 8;
-int randomStudent;
-float rowdiness = 1;
-String teachingText;
 int time = 0;
-
 int classIndex = 0;
-int studentIndexes[][] = new int[3][4];
+int x, y, randomStudent;
 
+//Setup function, sets the default teacher and their paramters
 void setup(){
   size(1100,600);
-  
+  //Load the GUI, the classroom, and the framerate
   createGUI();
   C = new Classroom(numStudents,rowdiness);
   frameRate(60);
   
+  //Loads the default teacher with his parameters
   TeacherQuotes[0] = "Why?";
   TeacherQuotes[1] = "Join Track!";
   name = "Mr. Snatty";  
@@ -31,6 +32,8 @@ void setup(){
   teachingImage = loadImage("CO2.png");
   teacher = new Teacher(name, TeacherQuotes, subjectSelect.getSelectedText());
   
+  
+  //Loads the students with their randomized pictures and desks
   img = loadImage("realTeacherTemplate.png");
   studentImages[0] = loadImage("student.png");
   studentImages[1] = loadImage("studentBehind1.png");
@@ -44,13 +47,15 @@ void setup(){
   for (int i=0; i<numStudents; i++) {
     C.Students[i].assignDesk();
   }
-       
-  //Snatty.speak();
 };
 
+
+//Draw function, runs 60 times per second
 void draw(){
-  int x,y;
+  //Increases the time variable by one (simulates time for randomness)
   time++;
+  
+  //Draws the classroom, teacher, desks and students
   C.drawClassroom();
   teacher.drawTeacher();
   for(int i=0; i<3; i++) {
@@ -75,42 +80,66 @@ void draw(){
       }
     }
   
+  
+  //Simulates random dialogue lines 
+  
+  //Chooses a random float from 1 to 1000, and if it is bigger than 995 then the code will continue
   if (random(1000)>995) {
     speechCount = 0;
     randomStudent = int(random(C.Students.length));
     
+    //Random chance to ask a question or cause a disturbance depending on student rowdiness
     if (random(10)>C.Students[randomStudent].rowdiness) {
-    C.Students[randomStudent].askQuestion(classIndex);
-  }
+       C.Students[randomStudent].askQuestion(classIndex);
+    }
     else {
       classIndex = subjectSelect.getSelectedIndex();
       C.Students[randomStudent].causeDisturbance(classIndex);
     }
   }
-  //dialogue
+  
+  
+  //Code to showcase dialogue on screen
+  
+  //Checks when the speaker verifier is true
   if (speaker[0].equals("True")){
+    //Starts counting how long the speaker has been speaking
     speechCount++;
+    
+    //Checks where the text bubble should be, and moves it there
     if(speaker[2].equals("Teacher")){
+      //Positioning of the teacher
       x = 330;
       y = 100;
     }
     else {
-      x = int(C.Students[randomStudent].D.pos.x)+60;
+      //Positioning of a random student
+      x = int(C.Students[randomStudent].D.pos.x)+50;
       y = int(C.Students[randomStudent].D.pos.y)-70;
     }
+    //When timer runs out, revert all speaker values to random
     if (speechCount >= 200){
        speaker[0] = "False"; 
        speaker[2] = "N/A";
        speechCount = 0;
        randomStudent = 13;
      }
-    image(bubble,x,y,150,75);
-    textSize(8);
+     //Makes the speech bubble an adequate size for the text contained it
+     if (speaker[1].length() > 9){
+      image(bubble,x,y,7*speaker[1].length(),75);
+    }
+    else{
+      image(bubble,x,y,13*speaker[1].length(),75);
+
+    }
+    //Edits the size and writes the text on the screen
+    textSize(10);
     text(speaker[1], x+20,y+30);
    }
 }
 
-void rest() {
+//reset function, resets the classroom, students and the time
+void reset() {
   C = new Classroom(numStudents, rowdiness);
   for (int i=0; i<numStudents; i++) {
     C.Students[i].assignDesk();

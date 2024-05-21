@@ -42,6 +42,23 @@ public void button4_click1(GButton source, GEvent event) { //_CODE_:button4:2190
     teacher.teaching = true;
 } //_CODE_:button4:219060:
 
+public void cryClicked(GButton source, GEvent event) { //_CODE_:Cry:589739:
+    speaker[0] = "True";
+    speaker[1] = "You guys are terrible *Crying Noises*";
+    speaker[2] = "Teacher";
+    for (int k=0; k<numStudents; k++) {
+      try {
+        //Crying 
+        C.Students[k].rowdiness ++;
+        C.Students[k].understanding -= 0.5;
+      }
+      catch (Exception e) {
+        println();
+      }
+    }
+  
+} //_CODE_:Cry:589739:
+
 synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:window1:872767:
   appc.background(230);
 } //_CODE_:window1:872767:
@@ -77,21 +94,6 @@ public void subjectSelectChanged(GDropList source, GEvent event) { //_CODE_:subj
     teachingImage = loadImage("MandelbrotSet.png");
 
   }
-  else if (subjectSelect.getSelectedText().equals("English")){
-    TeacherQuotes[0] = "";
-    TeacherQuotes[1] = "";
-    name = "Mr. Wiebe";  
-    teacherImage = loadImage("speech.png");
-    teachingImage = null;
-
-  }
-  else{
-    TeacherQuotes[0] = "Feel the rain on your skin";
-    TeacherQuotes[1] = "Alllllrighhht";
-    name = "Mr. Vrolyk";  
-    teacherImage = loadImage("speech.png");
-
-  }
   teacher = new Teacher(name, TeacherQuotes, subjectSelect.getSelectedText());
 
   TeacherIntro.setText(("You will be playing as "+ teacher.name));
@@ -107,14 +109,14 @@ public void crazinessChanged(GSlider source, GEvent event) { //_CODE_:craziness:
   
   if (rowdiness != craziness.getValueI()) {
     rowdiness = craziness.getValueI();
-    rest();
+    reset();
   }
 } //_CODE_:craziness:374725:
 
 public void setNumStudents(GSlider source, GEvent event) { //_CODE_:NUMStudents:804576:
   if (numStudents != NUMStudents.getValueI()) {
     numStudents = NUMStudents.getValueI();
-    rest();
+    reset();
   }
 } //_CODE_:NUMStudents:804576:
 
@@ -139,6 +141,9 @@ public void createGUI(){
   button4 = new GButton(this, 159, 164, 80, 30);
   button4.setText("Teach");
   button4.addEventHandler(this, "button4_click1");
+  Cry = new GButton(this, 159, 203, 80, 30);
+  Cry.setText("Cry");
+  Cry.addEventHandler(this, "cryClicked");
   window1 = GWindow.getWindow(this, "Window title", 0, 0, 240, 400, JAVA2D);
   window1.noLoop();
   window1.setActionOnClose(G4P.KEEP_OPEN);
@@ -192,6 +197,7 @@ GButton button1;
 GButton button2; 
 GButton button3; 
 GButton button4; 
+GButton Cry; 
 GWindow window1;
 GLabel label1; 
 GDropList subjectSelect; 

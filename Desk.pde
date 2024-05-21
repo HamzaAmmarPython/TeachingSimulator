@@ -1,3 +1,4 @@
+//Class for the desk
 class Desk {
   Student S;
   PVector pos, numDesk;
@@ -6,7 +7,7 @@ class Desk {
     this.numDesk = new PVector(-(column-2),row);
     this.pos = new PVector(200+125*column,310+100*row);
   }
-  
+  //Draws the desks and the students in the desks
   void drawDesk(int imageIndex) {
     //desks
     stroke(126);
