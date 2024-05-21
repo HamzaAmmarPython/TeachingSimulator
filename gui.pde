@@ -29,9 +29,10 @@ public void button2_click1(GButton source, GEvent event) { //_CODE_:button2:4726
 } //_CODE_:button2:472636:
 
 public void button3_click1(GButton source, GEvent event) { //_CODE_:button3:760748:
-  speechCount = 0;
-
-  teacher.speak();
+  if (speaker[2] == "Student") {
+    speechCount = 0;
+    teacher.speak();
+  }
 } //_CODE_:button3:760748:
 
 public void button4_click1(GButton source, GEvent event) { //_CODE_:button4:219060:
