@@ -1,19 +1,21 @@
 class Teacher{
   String name, subject;
   String[] answers;
-  Boolean teaching;
+  Boolean teaching,testing;
   
   Teacher(String n, String[] a, String s){
     this.name = n;
     this.answers = a;
     this.subject = s;
     this.teaching = false;
+    this.testing = false;
   }
   
   void drawTeacher(){
     //lesson
     if (teachingImage != null && this.teaching == true) {
       textSize(15);
+      fill(180);
       text(teachingText, 400,130);
       image(teachingImage, 380,137, 120,50);
     }

@@ -2,13 +2,13 @@
 class Classroom {
     //Initialises the parameters
     Student[] Students;
-    float[] gradeAverages;
+    float gradeAverages;
     String[] StudentNames = loadStrings("Names.txt");
     Desk[][] Desks = new Desk[4][3];
     
     // Constructor
     Classroom(int numberOfStudents, float r) {
-      this.gradeAverages = new float[numberOfStudents];
+      this.gradeAverages = 0;
       this.Students = new Student[numberOfStudents];
       
       for(int i=0; i<3; i++) {
@@ -88,25 +88,25 @@ class Classroom {
       for (int i=1;i<12;i++) {
         line(800,50*i,1100,50*i);
       }
+      
+      //Class average
+      stroke(10);
+      fill(255);
+      rect(593, 135, 80, 45);
+      fill(10);
+      textSize(10);
+      text("Grade Average",600,148);
+      textSize(12);
+      text(round(this.gradeAverages)+"%",625,166);
     }
 
     // Set grade average
-    void setGradeAverage(int studentIndex, float gradeAverage) {
-        if (studentIndex >= 0 && studentIndex < Students.length) {
-          gradeAverages[studentIndex] = gradeAverage;
-        } 
-        else {
-          println("Invalid student index");
+    void setGradeAverage() {
+      this.gradeAverages = 0;
+        for (int i=0; i < numStudents; i++) {
+          this.gradeAverages += Students[i].grade;
         }
-    }
-
-    // Get grade average  
-    float getGradeAverage(int studentIndex) {
-        if (studentIndex >= 0 && studentIndex < Students.length) {
-            return gradeAverages[studentIndex];
-        } else {
-            println("Invalid student index!");
-            return 0; // Return 0 if index invalid
-        }
+        
+        this.gradeAverages /= numStudents;
     }
 }

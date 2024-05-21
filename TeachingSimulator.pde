@@ -66,13 +66,30 @@ void draw(){
   
   for (int k=0; k<numStudents; k++) {
       try {
-        //teaching 
-        if (teacher.teaching == true && time%50 == 0 && k != randomStudent) {
-          C.Students[k].rowdiness += 0.1;
-          C.Students[k].understanding ++;
+        //If teaching adjust stats
+        if (teacher.teaching == true && time%20 == 0 && k != randomStudent) {
+          C.Students[k].rowdiness += random(1);
+          C.Students[k].understanding += random(1,3)-(C.Students[k].rowdiness/15);
         }
-        else if (time%100 == 0) 
-          C.Students[k].rowdiness -= 0.1;
+        else if (time%20 == 0) 
+          C.Students[k].rowdiness -= random(1);
+        
+        //limit for rowdiness
+        if (C.Students[k].rowdiness >= 50) {
+            C.Students[k].rowdiness = 50;
+        }
+        else if (C.Students[k].rowdiness <= 0) {
+          C.Students[k].rowdiness = 0;
+        }
+        //limit for understanding
+        if (C.Students[k].understanding >= 50) {
+            C.Students[k].understanding = 50;
+        }
+        else if (C.Students[k].understanding <= 0) {
+          C.Students[k].understanding = 0;
+        }
+        
+        //Display the students updated stats
         C.Students[k].displayStats(k);
       }
       catch (Exception e) {
@@ -84,12 +101,13 @@ void draw(){
   //Simulates random dialogue lines 
   
   //Chooses a random float from 1 to 1000, and if it is bigger than 995 then the code will continue
-  if (random(1000)>995) {
+  if (random(1000)>995 && speaker[0] == "False") {
+    button3.setLocalColorScheme(G4P.YELLOW_SCHEME);
     speechCount = 0;
     randomStudent = int(random(C.Students.length));
     
     //Random chance to ask a question or cause a disturbance depending on student rowdiness
-    if (random(10)>C.Students[randomStudent].rowdiness) {
+    if (random(50)>C.Students[randomStudent].rowdiness) {
        C.Students[randomStudent].askQuestion(classIndex);
     }
     else {
@@ -117,19 +135,24 @@ void draw(){
       x = int(C.Students[randomStudent].D.pos.x)+50;
       y = int(C.Students[randomStudent].D.pos.y)-70;
     }
-    //When timer runs out, revert all speaker values to random
+    //When timer runs out, revert all speaker values to normal
     if (speechCount >= 200){
+      if (speaker[2] == "Student") {
+       C.Students[randomStudent].understanding -= 1;
+       C.Students[randomStudent].rowdiness += 1;
+       }
        speaker[0] = "False"; 
        speaker[2] = "N/A";
        speechCount = 0;
        randomStudent = 13;
+       button3.setLocalColorScheme(G4P.BLUE_SCHEME);
      }
      //Makes the speech bubble an adequate size for the text contained it
      if (speaker[1].length() > 9){
-      image(bubble,x,y,7*speaker[1].length(),75);
+      image(bubble,x,y,8*speaker[1].length(),75);
     }
     else{
-      image(bubble,x,y,13*speaker[1].length(),75);
+      image(bubble,x,y,14*speaker[1].length(),75);
 
     }
     //Edits the size and writes the text on the screen
@@ -146,4 +169,5 @@ void reset() {
   }
   time = 0;
   teacher.teaching = false;
+  button4.setLocalColorScheme(G4P.BLUE_SCHEME);
 }
