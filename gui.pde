@@ -67,6 +67,10 @@ public void button1_click1(GButton source, GEvent event) { //_CODE_:button1:9293
   
 } //_CODE_:button1:929331:
 
+public void quitterClicked(GButton source, GEvent event) { //_CODE_:quitter:460397:
+  quit = true;
+} //_CODE_:quitter:460397:
+
 synchronized public void win_draw1(PApplet appc, GWinData data) { //_CODE_:window1:872767:
   appc.background(230);
 } //_CODE_:window1:872767:
@@ -149,6 +153,9 @@ public void createGUI(){
   button1 = new GButton(this, 593, 91, 80, 30);
   button1.setText("Give Test");
   button1.addEventHandler(this, "button1_click1");
+  quitter = new GButton(this, 165, 201, 80, 30);
+  quitter.setText("QUIT");
+  quitter.addEventHandler(this, "quitterClicked");
   window1 = GWindow.getWindow(this, "Window title", 0, 0, 240, 400, JAVA2D);
   window1.noLoop();
   window1.setActionOnClose(G4P.KEEP_OPEN);
@@ -202,6 +209,7 @@ GButton button3;
 GButton button4; 
 GButton Cry; 
 GButton button1; 
+GButton quitter; 
 GWindow window1;
 GLabel label1; 
 GDropList subjectSelect; 
